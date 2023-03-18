@@ -17,6 +17,9 @@ const App = () => {
   const button = () => {
     if((username === "" && password === "") || (username === "") || (password === "")){
       setError("Both username and password are required.")
+    }else{
+      let para = document.getElementById('errorMessage')
+      para.style.display = 'none'
     }
   }
   return (
