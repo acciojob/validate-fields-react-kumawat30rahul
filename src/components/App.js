@@ -5,7 +5,7 @@ const App = () => {
   const [username,setUsername] = useState("");
   const [password,setPassword] = useState("");
   const [error,setError] = useState("");
-  const [errorTrue,setErrorTrue] = useState(true);
+  const [errorTrue,setErrorTrue] = useState();
 
   const usernameHandler = (e) => {
     setUsername(e.target.value)
