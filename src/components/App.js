@@ -18,15 +18,16 @@ const App = () => {
     if((username === "" && password === "") || (username === "") || (password === "")){
       setError("Both username and password are required.")
     }else{
+      setError("")
       let para = document.getElementById('errorMessage')
       para.style.display = 'none'
     }
   }
   return (
     <div>
-        <label htmlfor="username">Username</label>
+        <label htmlFor="username">Username</label>
         <input type="text" id="username" />
-        <label htmlfor="password">Password</label>
+        <label htmlFor="password">Password</label>
         <input type="password" id="password" />
         <p id="errorMessage">{error}</p>
         <button type="submit" onClick={button}>Log in</button>
