@@ -28,6 +28,7 @@ const App = () => {
         <input type="text" id="username" />
         <label htmlFor="password">Password</label>
         <input type="password" id="password" />
+        <p></p>
         {errorTrue && <p id="errorMessage">{error}</p>}
         <button type="submit" onClick={button}>Log in</button>
     </div>
