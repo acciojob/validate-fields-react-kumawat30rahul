@@ -28,7 +28,7 @@ const App = () => {
         <input type="text" id="username" />
         <label htmlFor="password">Password</label>
         <input type="password" id="password" />
-        {setErrorTrue && <p id="errorMessage">{error}</p>}
+        {errorTrue && <p id="errorMessage">{error}</p>}
         <button type="submit" onClick={button}>Log in</button>
     </div>
   )
