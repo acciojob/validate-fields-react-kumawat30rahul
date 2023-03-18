@@ -1,51 +1,37 @@
-import React, { useState } from "react";
+import React,{useState} from "react";
+import './../styles/App.css';
 
-const LoginForm = () => {
-  const [username, setUsername] = useState("");
-  const [password, setPassword] = useState("");
-  const [errorMessage, setErrorMessage] = useState("");
+const App = () => {
+  const [username,setUsername] = useState("");
+  const [password,setPassword] = useState("");
+  const [error,setError] = useState("");
+  const [errorTrue,setErrorTrue] = useState(true);
 
-  const handleUsernameChange = (event) => {
-    setUsername(event.target.value);
-  };
+  const usernameHandler = (e) => {
+    setUsername(e.target.value)
+  }
+  const passwrodHandler = (e) => {
+    setPassword(e.target.value)
+  }
 
-  const handlePasswordChange = (event) => {
-    setPassword(event.target.value);
-  };
-
-  const handleSubmit = (event) => {
-    event.preventDefault();
-    if (username === "" || password === "") {
-      setErrorMessage("Both username and password are required.");
-    } else {
-      setErrorMessage("");
-      // perform login action here
+  const button = () => {
+    if((username === "" && password === "") || (username === "") || (password === "")){
+      setErrorTrue(true)
+      setError("Both username and password are required.")
+    }else{
+      setError(false)
     }
-  };
-
+  }
   return (
-    <form onSubmit={handleSubmit}>
-      <label htmlFor="username">Username:</label>
-      <input
-        type="text"
-        id="username"
-        value={username}
-        onChange={handleUsernameChange}
-      />
+    <div>
+        <label htmlFor="username">Username</label>
+        <input type="text" id="username" />
+        <label htmlFor="password">Password</label>
+        <input type="password" id="password" />
+        {setErrorTrue && <p id="errorMessage">{error}</p>}
+        <button type="submit" onClick={button}>Log in</button>
+    </div>
+  )
+}
 
-      <label htmlFor="password">Password:</label>
-      <input
-        type="password"
-        id="password"
-        value={password}
-        onChange={handlePasswordChange}
-      />
-
-      {errorMessage && <p id="errorMessage">{errorMessage}</p>}
-
-      <button type="submit">Log In</button>
-    </form>
-  );
-};
-
-export default LoginForm;
+export default App
