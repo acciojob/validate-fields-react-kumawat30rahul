@@ -19,8 +19,6 @@ const App = () => {
       setError("Both username and password are required.")
     }else{
       setError("")
-      let para = document.getElementById('errorMessage')
-      para.style.display = 'none'
     }
   }
   return (
